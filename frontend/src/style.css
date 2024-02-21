@@ -1,0 +1,13 @@
+@font-face {
+  font-family: Degular;
+  src: url("./assets/fonts/Degular-Medium.1d52003d.woff2") format("woff2"), url("/fonts/Degular.woff") format("woff");
+}
+@font-face {
+  font-family: "Recoletta";
+  src: url("./assets/fonts/Recoleta-Medium.woff2");
+}
+* {
+  font-family: "Degular", sans-serif;
+  margin: 0;
+  padding: 0;
+}/*# sourceMappingURL=style.css.map */
