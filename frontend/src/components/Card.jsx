@@ -18,6 +18,16 @@ const Card = () => {
       name: "Operating Systems",
       color: "#6b5b95",
     },
+    {
+      id: 4,
+      name: "PHP",
+      color: "#F3ACFF",
+    },
+    {
+      id: 5,
+      name: "VB.Net",
+      color: "#A7B5FF",
+    },
     // Add more notebooks here
   ];
 
@@ -69,7 +79,7 @@ const Card = () => {
             key={note.id}
             style={{ backgroundColor: lighterColor }}
           >
-            <div className="tag">
+            <div className="tag" style={{ backgroundColor: color }}>
               <img src={hash} alt="" className="ico" />
               {notebook.name}
             </div>
