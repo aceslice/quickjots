@@ -112,22 +112,20 @@ body {
   justify-content: center;
   padding: 20px;
   gap: 15px;
+  flex-wrap: wrap;
   .card {
     padding: 20px;
     background: rgb(40, 40, 40);
     border-radius: 10px;
     transition: 200ms;
-    // display: flex;
-    // align-items: start;
-    // justify-content: center;
-    // flex-direction: column;
+    max-width: 350px;
     .tag {
       font-size: 10px;
       font-weight: 600;
       padding: 4px 10px;
       border-radius: 20px;
-      background-color: #eee;
-      //font-family: Recoletta Regular;
+      background-color: lightgrey;
+      font-family: Recoletta Regular;
       margin-bottom: 16px;
       display: inline-flex;
       align-items: center;

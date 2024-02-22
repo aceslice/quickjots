@@ -1,4 +1,6 @@
+import React from "react";
 import hash from "/assets/hashtag_key.svg";
+
 const Card = () => {
   const noteBooks = [
     {
@@ -6,14 +8,31 @@ const Card = () => {
       name: "Discrete Mathematics",
       color: "#0e6ffc",
     },
+    {
+      id: 2,
+      name: "Computer Architecture",
+      color: "#ff6f00",
+    },
+    {
+      id: 3,
+      name: "Operating Systems",
+      color: "#6b5b95",
+    },
+    // Add more notebooks here
   ];
+
+  const noteBooksObj = noteBooks.reduce((obj, item) => {
+    obj[item.id] = { color: item.color, name: item.name };
+    return obj;
+  }, {});
+
   const notes = [
     {
       id: 1,
-      name: "Functions",
+      name: "Boolean Algebra",
       content:
-        "Lorem ipsum dolor sit amet. This an industry dummy text whixh has been around for ages and counting",
-      notebookId: "Discrete Maths",
+        "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
+      notebookId: 1,
       createdAt: new Date().getFullYear(),
       updatedAt: new Date().getDate(),
     },
@@ -21,26 +40,49 @@ const Card = () => {
       id: 2,
       name: "Multiplexers",
       content:
-        "Lorem ipsum dolor sit amet. This an industry dummy text whixh has been around for ages and counting",
-      notebookId: "Computer Arch.",
+        "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
+      notebookId: 2,
       createdAt: new Date().getFullYear(),
       updatedAt: new Date().getDate(),
     },
+    {
+      id: 3,
+      name: "Process Scheduling",
+      content:
+        "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
+      notebookId: 3,
+      createdAt: new Date().getFullYear(),
+      updatedAt: new Date().getDate(),
+    },
+    // Add more notes here
   ];
+
   return (
     <div className="card-container">
-      {notes.map((note) => (
-        <div className="card" key={note.id}>
-          <div className="tag">
-            <img src={hash} alt="" className="ico" />
-            {note.notebookId}
+      {notes.map((note) => {
+        const notebook = noteBooksObj[note.notebookId];
+        const color = notebook.color;
+        const lighterColor = color + "10";
+        return (
+          <div
+            className="card"
+            key={note.id}
+            style={{ backgroundColor: lighterColor }}
+          >
+            <div className="tag">
+              <img src={hash} alt="" className="ico" />
+              {notebook.name}
+            </div>
+            <h1 className="name">{note.name}</h1>
+            <p className="content">{note.content}</p>
+            <p className="time" style={{ color: color }}>
+              {note.createdAt}
+            </p>
           </div>
-          <h1 className="name">{note.name}</h1>
-          <p className="content">{note.content}</p>
-          <p className="time">{note.createdAt}</p>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
+
 export default Card;

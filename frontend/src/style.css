@@ -118,19 +118,22 @@ body {
   justify-content: center;
   padding: 20px;
   gap: 15px;
+  flex-wrap: wrap;
 }
 .card-container .card {
   padding: 20px;
   background: rgb(40, 40, 40);
   border-radius: 10px;
   transition: 200ms;
+  max-width: 350px;
 }
 .card-container .card .tag {
   font-size: 10px;
   font-weight: 600;
   padding: 4px 10px;
   border-radius: 20px;
-  background-color: #eee;
+  background-color: lightgrey;
+  font-family: Recoletta Regular;
   margin-bottom: 16px;
   display: inline-flex;
   align-items: center;
