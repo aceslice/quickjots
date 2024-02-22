@@ -126,12 +126,14 @@ body {
   border-radius: 10px;
   transition: 200ms;
   max-width: 350px;
+  border: 1px solid rgb(40, 40, 40);
 }
 .card-container .card .tag {
   font-size: 10px;
   font-weight: 600;
   padding: 4px 10px;
   border-radius: 20px;
+  color: #eee;
   margin-bottom: 16px;
   display: inline-flex;
   align-items: center;

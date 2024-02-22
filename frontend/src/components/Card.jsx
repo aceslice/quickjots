@@ -43,7 +43,11 @@ const Card = () => {
       content:
         "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
       notebookId: 1,
-      createdAt: new Date().getFullYear(),
+      createdAt: new Date().toLocaleDateString(undefined, {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }),
       updatedAt: new Date().getDate(),
     },
     {
@@ -52,7 +56,11 @@ const Card = () => {
       content:
         "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
       notebookId: 2,
-      createdAt: new Date().getFullYear(),
+      createdAt: new Date().toLocaleDateString(undefined, {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }),
       updatedAt: new Date().getDate(),
     },
     {
@@ -61,7 +69,37 @@ const Card = () => {
       content:
         "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
       notebookId: 3,
-      createdAt: new Date().getFullYear(),
+      createdAt: new Date().toLocaleDateString(undefined, {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }),
+      updatedAt: new Date().getDate(),
+    },
+    {
+      id: 4,
+      name: "Conditional Statements",
+      content:
+        "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
+      notebookId: 5,
+      createdAt: new Date().toLocaleDateString(undefined, {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }),
+      updatedAt: new Date().getDate(),
+    },
+    {
+      id: 5,
+      name: "Process Scheduling",
+      content:
+        "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
+      notebookId: 4,
+      createdAt: new Date().toLocaleDateString(undefined, {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }),
       updatedAt: new Date().getDate(),
     },
     // Add more notes here
