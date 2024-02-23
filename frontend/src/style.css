@@ -14,12 +14,31 @@
   font-family: "Degular Medium";
   src: url("./assets/fonts/Degular-Medium.1d52003d.woff2");
 }
+.light-theme {
+  --bg: #f9fafc;
+  --accent: #fff;
+  --primary-color: #2f2f2f;
+  --secondary-color: #616060;
+  --border: #f1f5f9;
+}
+
+.dark-theme {
+  --bg: rgb(22, 22, 22);
+  --accent: #191919;
+  --primary-color: #eee;
+  --secondary-color: #888;
+  --border: rgb(40, 40, 40);
+}
+
+.App {
+  background-color: var(--bg);
+  color: var(--secondary-color);
+  min-height: 100vh;
+}
+
 body {
   font-size: 17px;
   line-height: 1.3;
-  background: rgb(22, 22, 22);
-  background-repeat: repeat;
-  color: #888;
 }
 
 * {
@@ -39,7 +58,7 @@ body {
   justify-content: space-between;
   flex-direction: row;
   padding: 10px 25px;
-  background-color: rgb(28, 28, 28);
+  background-color: var(--accent);
   margin-bottom: 8px;
 }
 .topnav .logo-container {
@@ -50,14 +69,15 @@ body {
 }
 .topnav .logo-container img {
   height: 24px;
-  background: rgb(22, 22, 22);
+  background: var(--bg);
+  border: 2px solid var(--accent);
   border-radius: 100%;
-  padding: 10px;
+  padding: 5px;
 }
 .topnav .logo-container h1 {
   font-family: "Recoletta Bold";
   font-size: 20px;
-  color: #888;
+  color: var(--primary-color);
 }
 
 .header {
@@ -66,6 +86,10 @@ body {
   align-items: center;
   padding: 10px 25px;
   margin-bottom: 16px;
+}
+.header span {
+  font-size: larger;
+  color: var(--primary-color);
 }
 .header button {
   padding: 8px 16px;
@@ -79,7 +103,10 @@ body {
 }
 
 .tab {
-  overflow: hidden;
+  background: var(--accent);
+  max-width: 92%;
+  margin: 0 auto;
+  overflow: auto;
   padding: 10px 25px;
   border-radius: 20px;
   margin-bottom: 32px;
@@ -88,7 +115,7 @@ body {
 /* Style the buttons that are used to open the tab content */
 .tab button {
   background-color: transparent;
-  color: #888;
+  color: var(--secondary-color);
   float: left;
   border: none;
   outline: none;
@@ -102,58 +129,65 @@ body {
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: rgb(40, 40, 40);
-  color: #fff;
+  background-color: var(--bg);
+  color: var(--secondary-color);
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: rgb(40, 40, 40);
+  background-color: var(--border);
   color: #fff;
 }
 
 .card-container {
+  padding: 30px 20px;
+}
+.card-container .date-heading {
+  position: relative;
+  left: 30px;
+  font-size: 12px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.card-container .container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  gap: 15px;
-  flex-wrap: wrap;
+  gap: 20px;
 }
 .card-container .card {
   padding: 20px;
-  background: rgb(40, 40, 40);
   border-radius: 10px;
   transition: 200ms;
   max-width: 350px;
-  border: 1px solid rgb(40, 40, 40);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 .card-container .card .tag {
   font-size: 10px;
   font-weight: 600;
   padding: 4px 10px;
   border-radius: 20px;
-  color: #eee;
   margin-bottom: 16px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: rgb(40, 40, 40);
+  color: var(--accent);
   gap: 4px;
 }
 .card-container .card .name {
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 8px;
-  color: #eee;
+  color: var(--primary-color);
 }
 .card-container .card .content {
   margin-bottom: 16px;
-  font-size: 16px;
+  font-size: 15px;
 }
 .card-container .card .time {
   font-size: 10px;
   text-align: right;
+  font-weight: 500;
 }
 .card-container .card:hover {
-  transform: scale(1.03);
+  transform: scale(1.01);
 }/*# sourceMappingURL=style.css.map */
