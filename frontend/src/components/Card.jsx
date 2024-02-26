@@ -88,7 +88,7 @@ const Card = () => {
       name: "Process Scheduling",
       content:
         "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
-      notebookId: 5,
+      notebookId: 1,
       createdAt: new Date("2022-01-03T12:40:50Z").toLocaleDateString(
         undefined,
         {
@@ -165,12 +165,16 @@ const Card = () => {
                   <div
                     className="card"
                     key={note.id}
-                    style={{ backgroundColor: lighterColor }}
+                    style={{
+                      backgroundColor: lighterColor,
+                      borderLeft: `10px solid ${color}`,
+                    }}
                   >
                     <div
                       className="tag"
                       style={{ backgroundColor: `${color}95` }}
                     >
+                      <img src={hash} alt={hash} className="ico" />
                       {notebook.name}
                     </div>
                     <h1 className="name">{note.name}</h1>
