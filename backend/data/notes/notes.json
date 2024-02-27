@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Boolean Algebra",
+    "content": "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
+    "notebookId": 2,
+    "createdAt": 1641032430000,
+    "updatedAt": 25
+  },
+  {
+    "id": 2,
+    "name": "Multiplexers",
+    "content": "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
+    "notebookId": 6,
+    "createdAt": 1641123045000,
+    "updatedAt": 25
+  },
+  {
+    "id": 3,
+    "name": "Process Scheduling",
+    "content": "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
+    "notebookId": 1,
+    "createdAt": 1641213650000,
+    "updatedAt": 25
+  },
+  {
+    "id": 4,
+    "name": "Conditional Statements",
+    "content": "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
+    "notebookId": 8,
+    "createdAt": 1641391200000,
+    "updatedAt": 25
+  },
+  {
+    "id": 5,
+    "name": "Process Scheduling",
+    "content": "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
+    "notebookId": 4,
+    "createdAt": 1641391200000,
+    "updatedAt": 25
+  }
+]
