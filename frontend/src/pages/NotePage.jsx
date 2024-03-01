@@ -19,7 +19,7 @@ function NotePage() {
       const response = await fetch(`http://localhost:3000/notes/${noteId}`);
       const note = await response.json();
       reset({
-        title: note[0].title,
+        title: note[0].name,
         content: note[0].content,
       });
       doc.body.innerHTML = note[0].content;
@@ -52,10 +52,13 @@ function NotePage() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register("title")} placeholder="Title" />
         <button type="submit">Submit</button>
-        <iframe ref={iframeRef} style={{ width: "100%", height: "300px" }} />
+        <iframe
+          ref={iframeRef}
+          style={{ width: "100%", height: "300px", color: "red" }}
+        />
         <textarea
           {...register("content")}
-          style={{ width: "100%", height: "300px", display: "none" }}
+          style={{ width: "100%", height: "300px", display: "block" }}
           readOnly
         />
       </form>
