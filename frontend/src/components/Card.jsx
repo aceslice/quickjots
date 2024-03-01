@@ -23,90 +23,6 @@ const Card = () => {
     return obj;
   }, {});
 
-  // const notes = [
-  //   {
-  //     id: 1,
-  //     name: "Boolean Algebra",
-  //     content:
-  //       "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
-  //     notebookId: 2,
-  //     createdAt: new Date("2022-01-01T10:20:30Z").toLocaleDateString(
-  //       undefined,
-  //       {
-  //         day: "numeric",
-  //         month: "long",
-  //         year: "numeric",
-  //       }
-  //     ),
-  //     updatedAt: new Date().getDate(),
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Multiplexers",
-  //     content:
-  //       "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
-  //     notebookId: 6,
-  //     createdAt: new Date("2022-01-02T11:30:45Z").toLocaleDateString(
-  //       undefined,
-  //       {
-  //         day: "numeric",
-  //         month: "long",
-  //         year: "numeric",
-  //       }
-  //     ),
-  //     updatedAt: new Date().getDate(),
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Process Scheduling",
-  //     content:
-  //       "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
-  //     notebookId: 1,
-  //     createdAt: new Date("2022-01-03T12:40:50Z").toLocaleDateString(
-  //       undefined,
-  //       {
-  //         day: "numeric",
-  //         month: "long",
-  //         year: "numeric",
-  //       }
-  //     ),
-  //     updatedAt: new Date().getDate(),
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Conditional Statements",
-  //     content:
-  //       "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
-  //     notebookId: 8,
-  //     createdAt: new Date("2022-01-05T14:00:00Z").toLocaleDateString(
-  //       undefined,
-  //       {
-  //         day: "numeric",
-  //         month: "long",
-  //         year: "numeric",
-  //       }
-  //     ),
-  //     updatedAt: new Date().getDate(),
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "Process Scheduling",
-  //     content:
-  //       "Lorem ipsum dolor sit amet. This an industry dummy text which has been around for ages and counting",
-  //     notebookId: 4,
-  //     createdAt: new Date("2022-01-05T14:00:00Z").toLocaleDateString(
-  //       undefined,
-  //       {
-  //         day: "numeric",
-  //         month: "long",
-  //         year: "numeric",
-  //       }
-  //     ),
-  //     updatedAt: new Date().getDate(),
-  //   },
-  //   // Add more notes here
-  // ];
-
   // Transform notes array into an object grouped by date
   const notesByDate = notes.reduce((obj, note) => {
     const date = new Date(note.createdAt).toLocaleDateString(undefined, {
@@ -154,7 +70,14 @@ const Card = () => {
                       <h1 className="name">{note.name}</h1>
                       <p className="content">{note.content}</p>
                       <p className="time" style={{ color: color }}>
-                        {note.createdAt}
+                        {new Date(note.createdAt).toLocaleDateString(
+                          undefined,
+                          {
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric",
+                          }
+                        )}
                       </p>
                     </div>
                   </a>

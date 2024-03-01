@@ -195,4 +195,8 @@ a {
 }
 .card-container .card:hover {
   transform: scale(1.01);
+}
+
+iframe {
+  font-size: 40px;
 }/*# sourceMappingURL=style.css.map */
