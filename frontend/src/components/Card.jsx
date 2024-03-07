@@ -68,7 +68,12 @@ const Card = () => {
                         {notebook.name}
                       </div>
                       <h1 className="name">{note.name}</h1>
-                      <p className="content">{note.content}</p>
+                      <p className="content">
+                        {note.content.unformatted ||
+                          (note.content.formatted === ""
+                            ? note.content.unformatted
+                            : note.content.formatted)}
+                      </p>
                       <p className="time" style={{ color: color }}>
                         {new Date(note.createdAt).toLocaleDateString(
                           undefined,

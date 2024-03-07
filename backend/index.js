@@ -53,6 +53,46 @@ app.get("/notes/:id", (req, res) => {
     res.json([note]);
   });
 });
+// Define route to update note by ID
+app.put("/notes/:id", (req, res) => {
+  // Read notes from file on the user's device
+  fs.readFile("./data/notes/notes.json", "utf8", (err, data) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ error: "Error reading notes" });
+      return;
+    }
+
+    // Parse the data as JSON and find the note with the specified ID
+    const notes = JSON.parse(data);
+    const noteId = Number(req.params.id);
+    const noteIndex = notes.findIndex((note) => note.id === noteId);
+    if (noteIndex === -1) {
+      res.status(404).json({ error: "Note not found" });
+      return;
+    }
+
+    // Update the note
+    notes[noteIndex] = {
+      ...notes[noteIndex],
+      name: req.body.title,
+      content: req.body.content,
+    };
+    console.log(notes[noteIndex]);
+
+    // Write the updated notes back to the file
+    fs.writeFile("./data/notes/notes.json", JSON.stringify(notes), (err) => {
+      if (err) {
+        console.error(err);
+        res.status(500).json({ error: "Error writing notes" });
+        return;
+      }
+
+      // Send the updated note as a json response
+      res.json(notes[noteIndex]);
+    });
+  });
+});
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

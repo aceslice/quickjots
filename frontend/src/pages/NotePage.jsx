@@ -35,15 +35,19 @@ function NotePage() {
     doc.addEventListener("keydown", handleKeyDown);
 
     // Fetch note
+    // Fetch note
     const fetchNote = async () => {
       const response = await fetch(`http://localhost:3000/notes/${noteId}`);
       const note = await response.json();
       reset({
         title: note[0].name,
-        content: note[0].content,
+        content: note[0].content.unformatted,
       });
-      doc.body.innerHTML = note[0].content;
-      updateWordCount(note[0].content);
+      doc.body.innerHTML = note[0].content.formatted;
+      // updateWordCount(note[0].content);
+
+      // Update the unformatted content state
+      setUnformattedContent(doc.body.innerText);
     };
 
     fetchNote();
@@ -86,27 +90,43 @@ function NotePage() {
 
   const updateContent = (content) => {
     setValue("content", content);
-    updateWordCount(content);
+    // updateWordCount(content);
     const iframe = iframeRef.current;
     const doc = iframe.contentDocument || iframe.contentWindow.document;
     setUnformattedContent(doc.body.innerText); // Update the unformatted content state
   };
 
-  const updateWordCount = (content) => {
-    const words = content.trim().split(/\s+/);
-    setWordCount(words.length);
-  };
+  // const updateWordCount = (content) => {
+  //   const words = content.unformatted.trim().split(/\s+/);
+  //   setWordCount(words.length);
+  // };
 
   const onSubmit = async (data) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
     const dataToSend = {
       ...data,
       content: {
         formatted: data.content,
         unformatted: unformattedContent,
       },
+      updatedAt: new Date().getTime(),
     };
     console.log(dataToSend);
+
+    // // Send the updated data to the backend
+    const response = await fetch(`http://localhost:3000/notes/${noteId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataToSend),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const responseData = await response.json();
+    console.log(responseData);
   };
 
   return (
