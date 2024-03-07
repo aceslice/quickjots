@@ -4,6 +4,7 @@ import useFetch from "../../hooks/useFetch";
 
 const Card = () => {
   const notes = useFetch("http://localhost:3000/notes");
+
   const noteBooks = useFetch("http://localhost:3000/notebooks");
 
   const noteBooksObj =
