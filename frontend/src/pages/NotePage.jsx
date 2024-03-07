@@ -44,7 +44,7 @@ function NotePage() {
         content: note[0].content.unformatted,
       });
       doc.body.innerHTML = note[0].content.formatted;
-      // updateWordCount(note[0].content);
+      updateWordCount(note[0].content);
 
       // Update the unformatted content state
       setUnformattedContent(doc.body.innerText);
@@ -96,10 +96,10 @@ function NotePage() {
     setUnformattedContent(doc.body.innerText); // Update the unformatted content state
   };
 
-  // const updateWordCount = (content) => {
-  //   const words = content.unformatted.trim().split(/\s+/);
-  //   setWordCount(words.length);
-  // };
+  const updateWordCount = (content) => {
+    const words = content.unformatted.trim().split(/\s+/);
+    setWordCount(words.length);
+  };
 
   const onSubmit = async (data) => {
     const dataToSend = {
