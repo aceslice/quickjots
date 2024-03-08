@@ -19,10 +19,12 @@ const Header = () => {
         {getGreeting()} <br />
         <span>{user.name || "User"}</span>
       </p>
-      <button>
-        <img src={newIcon} alt="" className="ico" />
-        New note
-      </button>
+      <a href="new">
+        <button>
+          <img src={newIcon} alt="" className="ico" />
+          New note
+        </button>
+      </a>
     </div>
   );
 };

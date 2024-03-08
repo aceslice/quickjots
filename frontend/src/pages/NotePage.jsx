@@ -2,6 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import "../css/Notepage.css";
+import backIcon from "/assets/back.svg";
+import shareIcon from "/assets/share.svg";
+import saveIcon from "/assets/save.svg";
+import moreIcon from "/assets/more.svg";
 
 function NotePage() {
   const { noteId } = useParams();
@@ -15,6 +19,7 @@ function NotePage() {
   } = useForm();
   const [wordCount, setWordCount] = useState(0);
   const [content, setContent] = useState("");
+  const [noteBook, setNoteBook] = useState([]);
   const [unformattedContent, setUnformattedContent] = useState(""); // Add a state variable for the unformatted content
   const [timer, setTimer] = useState(null); // Add a state variable for the timer
 
@@ -39,12 +44,20 @@ function NotePage() {
     const fetchNote = async () => {
       const response = await fetch(`http://localhost:3000/notes/${noteId}`);
       const note = await response.json();
+      if (response.ok) {
+        const noteBookResponse = await fetch(
+          `http://localhost:3000/notebook/${note[0].notebookId}`
+        );
+        const noteBookJson = await noteBookResponse.json();
+        console.log(noteBookJson);
+        setNoteBook;
+      }
       reset({
         title: note[0].name,
         content: note[0].content.unformatted,
       });
       doc.body.innerHTML = note[0].content.formatted;
-      updateWordCount(note[0].content);
+      // updateWordCount(note[0].content);
 
       // Update the unformatted content state
       setUnformattedContent(doc.body.innerText);
@@ -132,14 +145,29 @@ function NotePage() {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register("title")} placeholder="Title" />
-        <button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Saving note" : "Save"}
-        </button>
-        <button type="button" onClick={handleBold}>
-          Bold
-        </button>{" "}
-        {/* Add a button to trigger the handleBold function */}
+        <div className="head">
+          <div className="container">
+            <button>
+              <img src={backIcon} alt="" className="ico" />
+            </button>
+          </div>
+          <div className="actions">
+            <button>
+              <img src={shareIcon} alt="" className="ico" />
+            </button>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="primary-button"
+            >
+              <img src={saveIcon} alt="" className="ico" />
+              {isSubmitting ? "Saving note..." : "Save note"}
+            </button>
+            <button>
+              <img src={moreIcon} alt="" className="ico" />
+            </button>
+          </div>
+        </div>
         <iframe
           ref={iframeRef}
           className="custom-iframe"
