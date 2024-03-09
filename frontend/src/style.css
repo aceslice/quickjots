@@ -144,6 +144,19 @@ a {
   color: #fff;
 }
 
+.tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  gap: 4px;
+}
+
 .card-container {
   padding: 30px 20px;
 }
@@ -167,18 +180,6 @@ a {
   cursor: pointer;
   margin-bottom: 20px;
 }
-.card-container .card .tag {
-  font-size: 10px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 20px;
-  margin-bottom: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary-color);
-  gap: 4px;
-}
 .card-container .card .name {
   font-size: 18px;
   margin-bottom: 8px;
@@ -197,6 +198,47 @@ a {
   transform: scale(1.01);
 }
 
-textarea {
-  font-size: 40px;
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background: var(--accent);
+}
+.head .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 15px;
+}
+.head .container span {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--secondary-color);
+}
+.head button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--primary-color);
+  background-color: var(--accent);
+}
+.head .actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }/*# sourceMappingURL=style.css.map */

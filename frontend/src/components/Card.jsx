@@ -43,7 +43,7 @@ const Card = () => {
                 {notes &&
                   notesByDate[date].map((note) => {
                     const notebook = noteBooksObj[note.notebookId];
-                    const color = notebook.color;
+                    const color = noteBooksObj[note.notebookId].color;
                     const lighterColor = color + "20";
                     return (
                       <a href={`notes/${note.id}`} key={note.id}>
@@ -63,7 +63,18 @@ const Card = () => {
                             {notebook.name}
                           </div>
                           <h1 className="name">{note.name}</h1>
-                          <p className="content">
+                          <p
+                            className="content"
+                            style={{
+                              maxWidth: "364px",
+                              maxHeight: "188px",
+                              overflow: "hidden",
+                              display: "-webkit-box",
+                              WebkitBoxOrient: "vertical",
+                              WebkitLineClamp: 3,
+                              textOverflow: "ellipsis",
+                            }}
+                          >
                             {note.content.unformatted ||
                               (note.content.formatted === ""
                                 ? note.content.unformatted

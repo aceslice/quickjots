@@ -12,13 +12,12 @@
     gap: 8px;
     cursor: pointer;
     font-weight: 500;
+    color: lightgray;
   }
   .actions {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    .secondary-button {
-    }
   }
 }
