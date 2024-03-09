@@ -125,7 +125,7 @@ function NotePage() {
       `<span style="
       color: ${noteBook[0]?.color}; background: ${
         noteBook[0]?.color + 20
-      }; padding:0 10px; text-align: center; border-radius: 10px; font-size: 16px; margin: 0 6px;">${output}</span>&#8203;`
+      }; padding:0 10px; border-radius: 2px; font-size: 16px; margin: 0 6px;">${output}</span>&#8203;`
     );
     updateContent(doc.body.innerHTML);
   };
@@ -165,11 +165,13 @@ function NotePage() {
               <p style={{ color: noteBook[0]?.color }}>{note[0]?.name}</p>
               <p>
                 Last updated:{" "}
-                {new Date(note[0]?.createdAt).toLocaleDateString(undefined, {
+                {new Date(note[0]?.updatedAt).toLocaleDateString(undefined, {
                   day: "numeric",
                   month: "long",
                   year: "numeric",
-                })}
+                }) +
+                  " " +
+                  new Date(note[0]?.updatedAt).toLocaleTimeString()}
               </p>
             </span>
             &#8226;{" "}
@@ -230,8 +232,12 @@ function NotePage() {
           ref={iframeRef}
           className="custom-iframe"
           width="100%"
-          height="300px"
-          style={{ border: "none" }}
+          height="100%"
+          style={{
+            border: "none",
+            position: "relative",
+            height: " calc(100vh - 90px)",
+          }}
         />
         <textarea
           {...register("content")}

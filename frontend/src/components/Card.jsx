@@ -18,7 +18,7 @@ const Card = () => {
   const notesByDate =
     notes &&
     notes.reduce((obj, note) => {
-      const date = new Date(note.createdAt).toLocaleDateString(undefined, {
+      const date = new Date(note.updatedAt).toLocaleDateString(undefined, {
         day: "numeric",
         month: "long",
         year: "numeric",
@@ -81,7 +81,7 @@ const Card = () => {
                                 : note.content.formatted)}
                           </p>
                           <p className="time" style={{ color: color }}>
-                            {new Date(note.createdAt).toLocaleDateString(
+                            {new Date(note.updatedAt).toLocaleDateString(
                               undefined,
                               {
                                 day: "numeric",

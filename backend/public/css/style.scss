@@ -10,4 +10,6 @@
 body {
   padding: 32px;
   font-size: 17px;
+  overflow-wrap: break-word;
+  word-break: break-all; // Add this line
 }

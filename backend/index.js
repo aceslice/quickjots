@@ -81,6 +81,7 @@ app.put("/notes/:id", (req, res) => {
       ...notes[noteIndex],
       name: req.body.title,
       content: req.body.content,
+      updatedAt: req.body.updatedAt,
     };
     console.log(notes[noteIndex]);
 
