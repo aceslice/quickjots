@@ -170,6 +170,7 @@ a {
 .card-container .container {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 .card-container .card {
   padding: 20px;
@@ -241,4 +242,24 @@ a {
   align-items: center;
   justify-content: center;
   gap: 8px;
+}
+
+.title {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  font-weight: bolder;
+}
+.title input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 30px;
+  text-align: center;
+  -webkit-text-decoration: underline var(--bg);
+          text-decoration: underline var(--bg);
+  width: 100%;
+  color: var(--primary-color);
 }/*# sourceMappingURL=style.css.map */

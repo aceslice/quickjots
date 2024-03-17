@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import hash from "/assets/hash.svg";
 import useFetch from "../../hooks/useFetch";
 
@@ -42,8 +42,8 @@ const Card = () => {
               <div className="container">
                 {notes &&
                   notesByDate[date].map((note) => {
-                    const notebook = noteBooksObj[note.notebookId];
-                    const color = noteBooksObj[note.notebookId].color;
+                    const notebook = noteBooksObj && noteBooksObj[note.notebookId];
+                    const color = noteBooksObj && noteBooksObj[note.notebookId]?.color;
                     const lighterColor = color + "20";
                     return (
                       <a href={`notes/${note.id}`} key={note.id}>
@@ -60,7 +60,7 @@ const Card = () => {
                             style={{ backgroundColor: `${color}95` }}
                           >
                             <img src={hash} alt={hash} className="ico" />
-                            {notebook.name}
+                            {notebook && notebook.name}
                           </div>
                           <h1 className="name">{note.name}</h1>
                           <p

@@ -3,14 +3,13 @@
   src: url("/Degular-Medium.1d52003d.woff2");
 }
 * {
-  font-family: "Degular Medium";
-  color: #616060;
+  font-family: "Degular Medium", Arial, Helvetica, sans-serif;
+  color: #6b6a6a;
   background: transparent;
 }
 
 body {
-  padding: 32px;
-  font-size: 17px;
-  overflow-wrap: break-word;
-  word-break: break-all;
+  font-size: 26px;
+  line-height: 1.5;
+  font-weight: 200;
 }/*# sourceMappingURL=style.css.map */

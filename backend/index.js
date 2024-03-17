@@ -1,4 +1,3 @@
-// Node.js server code
 const express = require("express");
 const fs = require("fs");
 const cors = require("cors");
@@ -99,6 +98,28 @@ app.put("/notes/:id", (req, res) => {
   });
 });
 app.get("/notebook/:id", (req, res) => {
+  // Read notes from file on the user's device
+  fs.readFile("./data/notebooks.json", "utf8", (err, data) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ error: "Error reading notebooks" });
+      return;
+    }
+
+    // Parse the data as JSON and find the notebook with the specified ID
+    const notebooks = JSON.parse(data);
+    const noteBookId = Number(req.params.id);
+    const noteBook = notebooks.find((notebook) => notebook.id === noteBookId);
+    if (!noteBook) {
+      res.status(404).json({ error: "Note not found" });
+      return;
+    }
+
+    // Send the note as a json response
+    res.json([noteBook]);
+  });
+});
+app.get("/notebooks/:id", (req, res) => {
   // Read notes from file on the user's device
   fs.readFile("./data/notebooks.json", "utf8", (err, data) => {
     if (err) {

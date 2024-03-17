@@ -8,7 +8,7 @@ const Tab = () => {
       {noteBooks &&
         noteBooks.map((notebook) => (
           <button className="tablinks" key={notebook.id}>
-            {notebook.name}
+            <a href={`notebooks/${notebook.id}`}>{notebook.name}</a>
           </button>
         ))}
     </div>

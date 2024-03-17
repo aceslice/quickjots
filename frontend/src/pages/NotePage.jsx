@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import "../css/Notepage.css";
-import backIcon from "/assets/back.svg";
-import shareIcon from "/assets/share.svg";
 import saveIcon from "/assets/save.svg";
 import moreIcon from "/assets/more.svg";
 import hash from "/assets/hash.svg";
@@ -16,7 +14,7 @@ function NotePage() {
     handleSubmit,
     setValue,
     reset,
-    formState: { errors, isSubmitting, isSubmitted },
+    formState: { isSubmitting,  },
   } = useForm();
   const [wordCount, setWordCount] = useState(0);
   const [noteBook, setNoteBook] = useState([]);
@@ -56,7 +54,7 @@ function NotePage() {
         content: data[0]?.content.unformatted,
       });
       doc.body.innerHTML = data[0]?.content.formatted;
-      setWordCount(doc.body.innerText.split(" ").length);
+      setWordCount(data[0].content.unformatted.split(" ").length);
       setUnformattedContent(doc.body.innerText);
     };
 
@@ -87,22 +85,6 @@ function NotePage() {
     setUnformattedContent(doc.body.innerText);
     setWordCount(doc.body.innerText.split(" ").length);
   };
-  const handleBold = () => {
-    const iframe = iframeRef.current;
-    const doc = iframe.contentDocument || iframe.contentWindow.document;
-    const selection = doc.getSelection();
-    if (!selection.rangeCount) return false;
-    let output = "";
-    for (let i = 0; i < selection.rangeCount; i++) {
-      output += selection.getRangeAt(i).toString();
-    }
-    doc.execCommand(
-      "insertHTML",
-      false,
-      `<b style="color: ${noteBook[0]?.color};">${output}</b>`
-    );
-    updateContent(doc.body.innerHTML);
-  };
   const handleHighlight = () => {
     const iframe = iframeRef.current;
     const doc = iframe.contentDocument || iframe.contentWindow.document;
@@ -125,7 +107,7 @@ function NotePage() {
       `<span style="
       color: ${noteBook[0]?.color}; background: ${
         noteBook[0]?.color + 20
-      }; padding:0 10px; border-radius: 2px; font-size: 16px; margin: 0 6px;">${output}</span>&#8203;`
+      }; padding:0 10px; border-radius: 8px; margin: 0 6px;">${output}</span>&#8203;`
     );
     updateContent(doc.body.innerHTML);
   };
@@ -174,7 +156,7 @@ function NotePage() {
                   new Date(note[0]?.updatedAt).toLocaleTimeString()}
               </p>
             </span>
-            &#8226;{" "}
+            &#8226;
             <div
               className="tag"
               style={{
@@ -228,6 +210,9 @@ function NotePage() {
             </p>
           </div>
         </div>
+        <div className="title">
+          <input {...register("title")} type="text" placeholder="Your title goes here..." spellCheck/>
+        </div>
         <iframe
           ref={iframeRef}
           className="custom-iframe"
@@ -243,6 +228,7 @@ function NotePage() {
           {...register("content")}
           className="note-content"
           readOnly
+          spellCheck
           style={{ width: "100%", display: "none" }}
         />
       </form>
