@@ -5,6 +5,8 @@ import "../css/Notepage.css";
 import saveIcon from "/assets/save.svg";
 import moreIcon from "/assets/more.svg";
 import hash from "/assets/hash.svg";
+import Toolbar from "../components/Toolbar";
+
 
 function NotePage() {
   const { noteId } = useParams();
@@ -210,6 +212,7 @@ function NotePage() {
             </p>
           </div>
         </div>
+        <Toolbar />
         <div className="title">
           <input {...register("title")} type="text" placeholder="Your title goes here..." spellCheck/>
         </div>

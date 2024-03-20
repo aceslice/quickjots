@@ -254,6 +254,22 @@ a {
   }
  
 }
+.action-buttons{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px;
+  background: var(--accent);
+  position: sticky;
+  top: 0;
+  button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+}
 .title{
   margin: 20px;
   display: flex;
